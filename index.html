@@ -4,102 +4,106 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>InFusion – Jazz-Rock-Fusion</title>
-<meta name="description" content="InFusion spielt Jazz-Rock-Fusion: Klassiker der Fusion-Ära und eigene Kompositionen. Hörproben, Fotos und Booking-Kontakt.">
-<meta name="color-scheme" content="dark">
+<meta name="description" content="InFusion spielt Jazz-Rock-Fusion: Klassiker der Fusion-Ära und eigene Kompositionen. Fotos, Hörproben und Kontakt.">
 <style>
+:root{color-scheme:dark}
 :root{
-  --bg:#202020;       /* exakt der Hintergrund des Bandfotos */
-  --bg-soft:#292826;
-  --text:#ece6d8;
-  --muted:#a8a193;
-  --saffron:#e3a63a;  /* Hemd von Gitarrist */
-  --cobalt:#4a7bd0;   /* Polo von Drummer */
+  --bg:#17335f;
+  --bg-top:#0d2145;
+  --panel:#244a82;
+  --ink:#dce6f6;       /* Fließtext */
+  --muted:#a6b8d6;
+  --red:#f0566b;       /* Logo, Akzente */
+  --blue:#8fbaff;      /* Links */
+  --head:#f0b84f;      /* Überschriften */
+  --teal:#62d3c9;      /* Instrumente */
+  --amber:#f0b84f;     /* Zitat-Linie */
+  --line:rgba(220,230,246,.22);
   --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font:1.0625rem/1.65 var(--sans)}
-a{color:var(--saffron);text-underline-offset:.2em}
-a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+body{margin:0;color:var(--ink);background:linear-gradient(var(--bg-top),var(--bg) 40rem) var(--bg);font:1.0625rem/1.65 var(--sans)}
+a{color:var(--blue);text-underline-offset:.2em}
+a:hover{color:var(--red)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
 
-/* Kopf */
-.hero{display:grid;grid-template-columns:1.1fr 1fr;align-items:end;gap:1rem;padding-top:3rem}
-.hero h1{font:italic 700 clamp(3.5rem,11vw,7.5rem)/.95 var(--serif);letter-spacing:-.02em;margin:0 0 1rem}
-.hero p{margin:0;font-size:1.25rem;color:var(--muted);max-width:24rem}
-.hero img{width:100%;height:auto;display:block}
-nav{display:flex;gap:1.5rem;flex-wrap:wrap;padding:1.25rem 0;border-bottom:1px solid #3a3835}
-nav a{color:var(--text);text-decoration:none;font-size:.95rem}
-nav a:hover{color:var(--saffron)}
+/* Startseite */
+header h1{text-align:center;padding-top:2rem;margin:0 0 2rem;font:italic 700 clamp(3.5rem,12vw,8rem)/.95 var(--serif);letter-spacing:-.02em;color:var(--red)}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;align-items:start;gap:2.5rem}
+.hero p{margin:0 0 1.1rem;max-width:36rem}
+.hero img{width:100%;height:auto;display:block;border-radius:4px;box-shadow:0 0 0 1px rgba(220,230,246,.18),0 8px 28px rgba(0,0,0,.5)}
+blockquote{margin:1.75rem 0 0;padding-left:1.25rem;border-left:3px solid var(--amber);font:italic 1.3rem/1.45 var(--serif);color:var(--head);max-width:32rem}
 
-section{padding:4rem 0 1rem}
-h2{font:700 1.9rem/1.2 var(--serif);margin:0 0 1.5rem}
-.text{max-width:40rem}
-.text p{margin:0 0 1.1rem}
-blockquote{margin:2rem 0 0;padding-left:1.25rem;border-left:3px solid var(--saffron);font:italic 1.35rem/1.45 var(--serif);max-width:34rem}
+nav{display:flex;gap:1.75rem;flex-wrap:wrap;padding:1.25rem 0;margin-top:2.5rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav a{text-decoration:none;font-weight:600}
 
-/* Besetzung: Linie links = ein Musiker */
+section{padding:3.5rem 0 1rem}
+h2{font:700 1.9rem/1.2 var(--serif);color:var(--head);margin:0 0 1.5rem}
+h2::after{content:"";display:block;width:3rem;height:3px;background:var(--red);margin-top:.5rem}
+
+/* Besetzung */
 .members{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:2rem 2.5rem;margin:0;padding:0;list-style:none}
-.members li{border-left:3px solid var(--cobalt);padding-left:1rem}
+.members li{border-left:3px solid var(--red);padding-left:1rem}
 .members strong{display:block;font:700 1.25rem/1.3 var(--serif)}
-.members span{color:var(--muted)}
+.members span{color:var(--teal);font-weight:600}
 
-/* Live-Fotos */
+/* An-Sehen */
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
-.gallery img{width:100%;aspect-ratio:2/1;object-fit:cover;display:block}
+.gallery img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;display:block;border-radius:4px;box-shadow:0 0 0 1px rgba(220,230,246,.15),0 4px 14px rgba(0,0,0,.45)}
 
-/* Hörproben */
+/* An-Hören */
 .tracks{max-width:40rem}
-.track{padding:1rem 0;border-bottom:1px solid #3a3835}
 .track h3{margin:0 0 .5rem;font:700 1.1rem var(--serif)}
 .track audio{width:100%}
 .track p{margin:.5rem 0 0;color:var(--muted);font-size:.95rem}
-.placeholder{background:var(--bg-soft);padding:1.25rem 1.5rem;max-width:40rem;color:var(--muted)}
+.tl{list-style:none;margin:1rem 0 0;padding:0}
+.tl button{display:grid;grid-template-columns:3.2rem 1fr;gap:.25rem 1rem;width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;color:var(--ink);font:inherit;padding:.6rem .75rem;cursor:pointer}
+.tl button:hover{background:var(--panel)}
+.tl button[aria-current=true]{border-left-color:var(--red);background:var(--panel)}
+.tl .t{color:var(--red);font-weight:600;font-variant-numeric:tabular-nums}
+.tl .n{font-family:var(--serif);font-weight:700}
+.tl .o{grid-column:2;color:var(--muted);font-size:.9rem}
 
-/* Kontakt */
-.mail{display:inline-block;font:700 clamp(1.4rem,4vw,2.1rem)/1.3 var(--serif);word-break:break-all}
+/* An-Sprechen */
 
-footer{margin-top:5rem;border-top:1px solid #3a3835;padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
+footer{margin-top:5rem;border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
 footer h2{font-size:1.2rem;margin-bottom:.75rem}
+footer h2::after{display:none}
 footer p{margin:0 0 .6rem;max-width:40rem}
 
 @media (max-width:48rem){
-  .hero{grid-template-columns:1fr;padding-top:2rem}
-  .hero img{max-width:26rem;margin:0 auto}
+  .hero{grid-template-columns:1fr;gap:2rem}
+  .hero img{max-width:26rem;margin:0 auto;order:2}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="hero">
+  <header>
+    <h1>InFusion</h1>
+    <div class="hero">
     <div>
-      <h1>InFusion</h1>
-      <p>Jazz-Rock-Fusion: Klassiker der Fusion-Ära und eigene Kompositionen.</p>
+      <p>InFusion widmet sich vor allem der Musik jener Ära, in der Jazz mit dem Rock fusionierte. Die Band interpretiert ausgewählte Highlights legendärer Musiker dieser Zeit. In demselben Stil sind auch die eigenen Kompositionen entstanden, die einen wesentlichen Teil des Repertoires ausmachen.</p>
+      <p>Aus diesem Mix hat InFusion einen eigenen Stil gefunden, der die Band von anderen unterscheidet. Das Programm bietet viel Raum für komplexe Grooves, spannende Harmonien und kreative Improvisationen.</p>
+      <blockquote>Stücke, die kaum jemand „im Ohr hat“, aber sehr schnell „ins Ohr gehen“. Und gelegentlich auch „in die Beine“.</blockquote>
     </div>
-    <img src="images/band.jpg" width="781" height="784" alt="Die vier Musiker von InFusion, von links: Jakob Strobl, Wolfgang Gmal, Ralph Viehhauser und Peter Zartner">
+    <img src="images/band.jpg" width="781" height="784" alt="InFusion">
+    </div>
   </header>
 
   <nav aria-label="Hauptnavigation">
     <a href="#band">Die Band</a>
-    <a href="#besetzung">Besetzung</a>
-    <a href="#live">Live</a>
-    <a href="#hoerproben">Hörproben</a>
-    <a href="#booking">Booking</a>
+    <a href="#ansehen">An-Sehen</a>
+    <a href="#anhoeren">An-Hören</a>
+    <a href="#ansprechen">An-Sprechen</a>
   </nav>
 
   <main>
     <section id="band">
       <h2>Die Band</h2>
-      <div class="text">
-        <p>InFusion widmet sich vor allem der Musik jener Ära, in der Jazz mit dem Rock fusionierte. Die Band interpretiert ausgewählte Highlights legendärer Musiker dieser Zeit. In demselben Stil sind auch die eigenen Kompositionen entstanden, die einen wesentlichen Teil des Repertoires ausmachen.</p>
-        <p>Aus diesem Mix hat InFusion einen eigenen Stil gefunden, der die Band von anderen unterscheidet. Das Programm bietet viel Raum für komplexe Grooves, spannende Harmonien und kreative Improvisationen.</p>
-      </div>
-      <blockquote>Stücke, die kaum jemand „im Ohr hat“, aber sehr schnell „ins Ohr gehen“. Und gelegentlich auch „in die Beine“.</blockquote>
-    </section>
-
-    <section id="besetzung">
-      <h2>Besetzung</h2>
       <ul class="members">
         <li><strong>Jakob Strobl</strong><span>Keyboards</span></li>
         <li><strong>Wolfgang Gmal</strong><span>Gitarre</span></li>
@@ -108,40 +112,63 @@ footer p{margin:0 0 .6rem;max-width:40rem}
       </ul>
     </section>
 
-    <section id="live">
-      <h2>Live</h2>
+    <section id="ansehen">
+      <h2>An-Sehen</h2>
       <div class="gallery">
-        <img src="images/live-1.jpg" width="738" height="355" loading="lazy" alt="InFusion live auf der Bühne bei blauer Beleuchtung">
-        <img src="images/live-2.jpg" width="757" height="353" loading="lazy" alt="InFusion live auf der Bühne bei roter Beleuchtung">
-        <img src="images/live-3.jpg" width="720" height="385" loading="lazy" alt="InFusion live auf der Bühne unter einem Bühnenbogen">
+        <img src="images/live-1.jpg" width="738" height="355" loading="lazy" alt="Live 1">
+        <img src="images/live-2.jpg" width="757" height="353" loading="lazy" alt="Live 2">
+        <img src="images/live-3.jpg" width="720" height="385" loading="lazy" alt="Live 3">
       </div>
     </section>
 
-    <section id="hoerproben">
-      <h2>Hörproben</h2>
+    <section id="anhoeren">
+      <h2>An-Hören</h2>
       <div class="tracks">
         <div class="track">
           <h3>Demo Compilation 1 (Mix)</h3>
-          <audio controls preload="none" src="audio/infusion-demo-compilation.mp3">Ihr Browser unterstützt keinen Audioplayer. <a href="audio/infusion-demo-compilation.mp3">Datei direkt öffnen</a>.</audio>
-          <p>Ausschnitte aus Eigenkompositionen und Interpretationen, Länge ca. 11 Minuten.</p>
+          <audio id="demo" controls preload="none" src="audio/infusion-demo-compilation.mp3">Ihr Browser unterstützt keinen Audioplayer. <a href="audio/infusion-demo-compilation.mp3">Datei direkt öffnen</a>.</audio>
+          <p>Vier Interpretationen und eine Eigenkomposition, Länge ca. 11 Minuten. Ein Klick auf einen Titel springt direkt zur Stelle.</p>
+          <ol class="tl">
+            <li><button type="button" data-t="0"><span class="t">0:00</span><span class="n">Matt’s Funk</span><span class="o">Jimmy Herring Band</span></button></li>
+            <li><button type="button" data-t="94"><span class="t">1:34</span><span class="n">Red Baron</span><span class="o">Billy Cobham</span></button></li>
+            <li><button type="button" data-t="160"><span class="t">2:40</span><span class="n">Freedom</span><span class="o">Robben Ford</span></button></li>
+            <li><button type="button" data-t="292"><span class="t">4:52</span><span class="n">Generation X</span><span class="o">Eigenkomposition von Wolfgang Gmal</span></button></li>
+            <li><button type="button" data-t="386"><span class="t">6:26</span><span class="n">Going Home</span><span class="o">Russ Ferrante</span></button></li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section id="booking">
-      <h2>Booking</h2>
+    <section id="ansprechen">
+      <h2>An-Sprechen</h2>
       <p>Anfragen für Auftritte richten Sie bitte an Jakob Strobl:</p>
-      <a class="mail" href="mailto:infusion@online.de">infusion@online.de</a>
-      <p><a href="tel:+491711235051">+49 171 1235051</a></p>
+      <p><a href="mailto:infusion@online.de">infusion@online.de</a><br><a href="tel:+491711235051">+49 171 1235051</a></p>
     </section>
   </main>
 
   <footer>
     <h2>Impressum</h2>
-    <p>Jakob Strobl<br>[Straße und Hausnummer]<br>[PLZ Ort]</p>
+    <p>Jakob Strobl<br>Am Ziegelstadl 2<br>84184 Tiefenbach</p>
     <p>E-Mail: <a href="mailto:infusion@online.de">infusion@online.de</a><br>Telefon: <a href="tel:+491711235051">+49 171 1235051</a></p>
     <p>Diese Website setzt keine Cookies und bindet keine externen Dienste ein.</p>
   </footer>
 </div>
+<script>
+(function(){
+  var a=document.getElementById('demo');
+  if(!a)return;
+  var b=[].slice.call(document.querySelectorAll('.tl button'));
+  function go(t){
+    function st(){a.currentTime=t;a.play();}
+    if(a.readyState>=1){st();}else{a.addEventListener('loadedmetadata',st,{once:true});a.load();}
+  }
+  b.forEach(function(x){x.addEventListener('click',function(){go(+x.dataset.t);});});
+  a.addEventListener('timeupdate',function(){
+    var cur=-1;
+    b.forEach(function(x,i){if(a.currentTime>=+x.dataset.t)cur=i;});
+    b.forEach(function(x,i){if(i===cur&&!a.paused){x.setAttribute('aria-current','true');}else{x.removeAttribute('aria-current');}});
+  });
+})();
+</script>
 </body>
 </html>
